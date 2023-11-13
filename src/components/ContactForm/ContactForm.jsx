@@ -69,7 +69,9 @@ class ContactForm extends Component {
           required
         />
         <Format>Format: (012) 345-67-89</Format>
-        <FormSubmit type="submit">Add contact</FormSubmit>
+        <FormSubmit variant="contained" type="submit">
+          Add contact
+        </FormSubmit>
       </Form>
     );
   }

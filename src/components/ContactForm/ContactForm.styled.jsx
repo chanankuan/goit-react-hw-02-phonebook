@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import { TextField } from '@mui/material';
+import { TextField, Button } from '@mui/material';
+import { theme } from '../../styles/theme';
 
 export const Form = styled.form`
   display: flex;
@@ -15,17 +16,15 @@ export const FormInput = styled(TextField)(() => ({
   margin: '0 auto',
 }));
 
-export const FormSubmit = styled.button`
-  font-size: 1rem;
-  padding: 10px 0;
-  margin: 0 auto;
-  margin-top: 40px;
-  background-color: orange;
-  width: 300px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-`;
+export const FormSubmit = styled(Button)(() => ({
+  margin: '0 auto',
+  marginTop: '40px',
+  width: '300px',
+  backgroundColor: theme.palette.primary.light,
+  '&:hover': {
+    backgroundColor: theme.palette.primary.main,
+  },
+}));
 
 export const Format = styled.p`
   font-size: 14px;
