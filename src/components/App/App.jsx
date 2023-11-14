@@ -13,11 +13,9 @@ class App extends Component {
     filter: '',
   };
 
-  onAddContact = (event, data) => {
-    event.preventDefault();
-
+  onAddContact = data => {
     const isExist = this.state.contacts.some(contact => {
-      return contact.name === data.name;
+      return contact.name.toLowerCase() === data.name.toLowerCase();
     });
 
     if (isExist) {
@@ -29,28 +27,26 @@ class App extends Component {
       contacts: [
         ...prevState.contacts,
         {
-          ...data,
           id: nanoid(),
+          name: data.name,
+          number: data.number,
           bgColor: getRandomHexColor().bgColor,
           color: getRandomHexColor().color,
         },
       ],
-      filter: '',
     }));
   };
 
   onDeleteContact = id => {
     this.setState(prevState => ({
-      ...prevState,
       contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
   };
 
   onSearchContact = event => {
-    this.setState(prevState => ({
-      ...prevState,
+    this.setState({
       filter: event.target.value,
-    }));
+    });
   };
 
   render() {

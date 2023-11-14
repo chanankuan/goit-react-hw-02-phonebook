@@ -32,11 +32,13 @@ class ContactForm extends Component {
       value = value.replace(/[^a-zA-Zа-яА-ЯіІʼ\s-]/g, '');
     }
 
-    this.setState(prevState => ({ ...prevState, [name]: value }));
+    this.setState({ [name]: value });
   };
 
   handleAddContact = event => {
-    this.props.onAddContact(event, this.state);
+    event.preventDefault();
+
+    this.props.onAddContact(this.state);
     this.setState({ name: '', number: '' });
   };
 

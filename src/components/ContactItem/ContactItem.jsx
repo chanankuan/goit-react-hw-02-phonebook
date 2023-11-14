@@ -13,7 +13,7 @@ const ContactItem = ({ id, name, number, color, bgColor, onDeleteContact }) => {
   return (
     <Item>
       <Avatar color={color} bgColor={bgColor}>
-        <Character>{name[0]}</Character>
+        <Character>{name[0].toUpperCase()}</Character>
       </Avatar>
       <Name>{name}</Name>
       <Number>{number}</Number>
